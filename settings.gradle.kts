@@ -26,3 +26,4 @@ rootProject.name = "app-challenge"
 include(":app")
 include(":core_design_system")
 include(":core_feature_arch")
+include(":plugin_data_privacy")
