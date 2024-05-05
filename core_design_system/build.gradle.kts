@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.paparazzi)
 }
 
 android {
@@ -39,4 +40,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.material)
     implementation(libs.lottie)
+
+    androidTestImplementation(libs.androidx.junit)
 }
