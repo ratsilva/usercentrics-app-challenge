@@ -25,3 +25,4 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "app-challenge"
 include(":app")
 include(":core_design_system")
+include(":core_feature_arch")
