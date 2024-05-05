@@ -59,6 +59,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
 
     implementation(projects.coreDesignSystem)
+    implementation(projects.pluginDataPrivacy)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(platform(libs.androidx.compose.bom))
