@@ -19,6 +19,9 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "App Challenge"
+// Generate type safe accessors when referring to other projects eg.
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
+rootProject.name = "app-challenge"
 include(":app")
- 
+include(":core_design_system")

@@ -9,12 +9,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import br.com.usercentrics.challenge.ui.theme.AppChallengeTheme
+import br.com.usercentrics.core_design_system.preview.DevicesPreview
+import br.com.usercentrics.core_design_system.theme.AppChallengeTheme
 
 class NavHostActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -49,7 +49,7 @@ fun NavigationGraph(modifier: Modifier = Modifier, navController: NavHostControl
     }
 }
 
-@Preview
+@DevicesPreview
 @Composable
 fun NavigationScreenPreview() {
     AppChallengeTheme {
