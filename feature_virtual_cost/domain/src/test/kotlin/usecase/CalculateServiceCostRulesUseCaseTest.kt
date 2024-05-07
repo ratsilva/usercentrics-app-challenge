@@ -38,7 +38,7 @@ class CalculateServiceCostRulesUseCaseTest {
 
         coEvery {
             calculatorStrategy.calculate(serviceCost)
-        } returns (serviceCost.cost + 1.0)
+        } returns serviceCost.cost + 1.0
 
         val result = useCase(serviceCost)
 

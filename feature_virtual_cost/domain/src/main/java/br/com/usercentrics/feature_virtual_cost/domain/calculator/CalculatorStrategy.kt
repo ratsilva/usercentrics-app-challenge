@@ -9,5 +9,5 @@ interface CalculatorStrategy {
 }
 
 fun CostRule.applyFactorTo(cost: Double): Double {
-    return cost + ((cost * this.costFactor) / 100)
+    return cost + (cost * this.costFactor) / 100
 }

@@ -9,7 +9,8 @@ import com.usercentrics.sdk.Usercentrics
 import com.usercentrics.sdk.UsercentricsBanner
 import com.usercentrics.sdk.UsercentricsOptions
 import com.usercentrics.sdk.UsercentricsServiceConsent
-import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
@@ -32,7 +33,7 @@ class UsercentricsDataPrivacyService : DataPrivacyService {
     }
 
     override fun collectedServices() = _services.shareIn(
-        GlobalScope,
+        CoroutineScope(Dispatchers.IO),
         SharingStarted.WhileSubscribed()
     )
 
