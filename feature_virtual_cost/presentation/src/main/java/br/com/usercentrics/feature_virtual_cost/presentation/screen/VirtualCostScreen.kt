@@ -11,6 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -82,11 +83,17 @@ fun VirtualCostSuccessScreen(virtualCost: Double, onShowConsentButtonClick: () -
         ) {
             TextDisplayLarge(
                 text = virtualCost.toString(),
-                modifier = Modifier.padding(bottom = Dimen.spacing03)
+                modifier = Modifier
+                    .padding(bottom = Dimen.spacing03)
+                    .testTag(VirtualCostScreenTags.Success.TEXT_ONE)
             )
-            TextBodyMedium(text = stringResource(id = R.string.score_label))
+            TextBodyMedium(
+                text = stringResource(id = R.string.score_label),
+                modifier = Modifier.testTag(VirtualCostScreenTags.Success.TEXT_TWO)
+            )
         }
         VirtualCostButton(
+            modifier = Modifier.testTag(VirtualCostScreenTags.Success.BUTTON),
             text = R.string.show_banner_button_title,
             onClick = onShowConsentButtonClick,
         )
@@ -102,10 +109,12 @@ fun VirtualCostLoadingScreen() {
         LottieImage(
             modifier = Modifier
                 .weight(1f)
-                .padding(Dimen.spacing16),
+                .padding(Dimen.spacing16)
+                .testTag(VirtualCostScreenTags.Loading.IMAGE),
             resource = LottieResource.Loading
         )
         VirtualCostButton(
+            modifier = Modifier.testTag(VirtualCostScreenTags.Loading.BUTTON),
             text = R.string.show_banner_button_title,
             enabled = false,
         ) {}
@@ -116,7 +125,9 @@ fun VirtualCostLoadingScreen() {
 fun VirtualCostErrorScreen() {
     Box(contentAlignment = Alignment.Center) {
         LottieImage(
-            modifier = Modifier.align(Alignment.Center),
+            modifier = Modifier
+                .align(Alignment.Center)
+                .testTag(VirtualCostScreenTags.Error.IMAGE),
             resource = LottieResource.Error
         )
     }

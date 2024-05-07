@@ -31,7 +31,7 @@ class VirtualCostViewModel(
     private fun fetchVirtualCost() {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                virtualCostUseCase(this).collect { virtualCost ->
+                virtualCostUseCase().collect { virtualCost ->
                     sendAction(Action.ContentVirtualCost(virtualCost))
                 }
             } catch (e: Exception) {

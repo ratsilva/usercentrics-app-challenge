@@ -10,7 +10,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 
 class DataTypeRepositoryImpl(
-    private val dataTypeService: DataTypeService,
+    private val dataTypeApiService: DataTypeService,
     private val dataTypeDao: DataTypeDao,
 ) : DataTypeRepository {
     override suspend fun getAll(onlyCache: Boolean): Flow<List<DataType>> =
@@ -18,7 +18,7 @@ class DataTypeRepositoryImpl(
             dataTypes.map { it.toDomain() }
         }.also {
             if (!onlyCache) {
-                dataTypeService.getAll().dataTypes.also { dataTypes ->
+                dataTypeApiService.getAll().dataTypes.also { dataTypes ->
                     if (dataTypes.isNotEmpty()) {
                         dataTypeDao.upsertAll(dataTypes.map { it.toEntity() })
                     }

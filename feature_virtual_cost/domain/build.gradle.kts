@@ -10,4 +10,9 @@ java {
 
 dependencies {
     implementation(libs.kotlin.coroutines)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.turbine)
 }

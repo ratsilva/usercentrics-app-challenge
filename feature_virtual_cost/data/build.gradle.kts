@@ -45,4 +45,9 @@ dependencies {
 
     implementation(projects.featureVirtualCost.domain)
     implementation(projects.pluginDataPrivacy)
+
+    testImplementation(libs.junit)
+    testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.mockk)
+    testImplementation(libs.turbine)
 }

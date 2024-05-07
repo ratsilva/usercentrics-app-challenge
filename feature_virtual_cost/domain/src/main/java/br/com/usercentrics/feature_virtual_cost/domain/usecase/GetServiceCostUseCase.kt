@@ -2,7 +2,6 @@ package br.com.usercentrics.feature_virtual_cost.domain.usecase
 
 import br.com.usercentrics.feature_virtual_cost.domain.model.toServiceCost
 import br.com.usercentrics.feature_virtual_cost.domain.repository.ServiceRepository
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import java.util.logging.Logger
@@ -16,8 +15,8 @@ class GetServiceCostUseCase(
         val Log: Logger = Logger.getLogger(GetServiceCostUseCase::class.java.name)
     }
 
-    suspend operator fun invoke(externalScope: CoroutineScope): Flow<Double> = flow {
-        serviceRepository.getConsentedServices(externalScope).collect { services ->
+    suspend operator fun invoke(): Flow<Double> = flow {
+        serviceRepository.getConsentedServices().collect { services ->
             services.map { service ->
                 calculateServiceCostRulesUseCase(
                     calculateServiceDataTypeCostUseCase(service.toServiceCost())
