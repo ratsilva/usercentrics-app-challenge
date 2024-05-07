@@ -1,6 +1,7 @@
 package br.com.usercentrics.challenge
 
 import android.app.Application
+import br.com.usercentrics.feature_virtual_cost.featureVirtualCostModules
 import br.com.usercentrics.plugin_data_privacy.DataPrivacyPlugin
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
@@ -23,6 +24,8 @@ class AppChallengeApplication : Application() {
             modules(module {
                 single { DataPrivacyPlugin.initialize(this@AppChallengeApplication) }
             })
+            modules(appModule)
+            modules(featureVirtualCostModules)
 
         }
     }

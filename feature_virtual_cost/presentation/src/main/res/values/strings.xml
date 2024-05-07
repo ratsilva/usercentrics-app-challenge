@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="score_label">Consent Score</string>
+    <string name="show_banner_button_title">Show Consent Banner</string>
+</resources>

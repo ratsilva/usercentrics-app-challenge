@@ -6,7 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -15,13 +14,17 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import br.com.usercentrics.core_design_system.preview.DevicesPreview
 import br.com.usercentrics.core_design_system.theme.AppChallengeTheme
+import br.com.usercentrics.feature_virtual_cost.presentation.screen.VirtualCostScreen
+import org.koin.compose.KoinContext
 
 class NavHostActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            AppChallengeTheme {
-                NavigationScreen()
+            KoinContext {
+                AppChallengeTheme {
+                    NavigationScreen()
+                }
             }
         }
     }
@@ -44,7 +47,7 @@ fun NavigationScreen(
 fun NavigationGraph(modifier: Modifier = Modifier, navController: NavHostController) {
     NavHost(navController, modifier = modifier, startDestination = NavItem.Home.route) {
         composable(NavItem.Home.route) {
-            Text(text = "Home Screen")
+            VirtualCostScreen()
         }
     }
 }

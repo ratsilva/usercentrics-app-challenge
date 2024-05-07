@@ -3,7 +3,7 @@ package br.com.usercentrics.plugin_data_privacy.service
 import android.content.Context
 import br.com.usercentrics.plugin_data_privacy.BuildConfig
 import br.com.usercentrics.plugin_data_privacy.exception.InitializationException
-import br.com.usercentrics.plugin_data_privacy.model.Service
+import br.com.usercentrics.plugin_data_privacy.model.DataService
 import br.com.usercentrics.plugin_data_privacy.model.toService
 import com.usercentrics.sdk.Usercentrics
 import com.usercentrics.sdk.UsercentricsBanner
@@ -23,7 +23,7 @@ import kotlin.coroutines.suspendCoroutine
 
 class UsercentricsDataPrivacyService : DataPrivacyService {
 
-    private var _services = MutableStateFlow<List<Service>>(emptyList())
+    private var _services = MutableStateFlow<List<DataService>>(emptyList())
     override fun initialize(context: Context) {
         Usercentrics.initialize(
             context,
@@ -49,11 +49,12 @@ class UsercentricsDataPrivacyService : DataPrivacyService {
         }
     }.onStart { emit(false) }
 
-    override fun collectConsent(context: Context) = UsercentricsBanner(context).showSecondLayer { response ->
-        response?.let {
-            updateConsent(it.consents)
+    override fun collectConsent(context: Context) =
+        UsercentricsBanner(context).showSecondLayer { response ->
+            response?.let {
+                updateConsent(it.consents)
+            }
         }
-    }
 
     private fun updateConsent(consents: List<UsercentricsServiceConsent>) {
         val serviceIds = consents.filter { it.status }.map { it.templateId }

@@ -16,7 +16,7 @@ android {
         buildConfigField(
             "String",
             "USERCENTRICS_SETTINGS_ID",
-            "\"${project.findProperty("USERCENTRICS_SETTINGS_ID")}\""
+            "\"${project.findProperty("usercentrics_settings_id")}\""
         )
     }
 
